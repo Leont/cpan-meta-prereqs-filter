@@ -48,6 +48,7 @@ sub filter_prereqs {
 				for my $module ($req->required_modules) {
 					next if not exists $Module::CoreList::version{$core_version}{$module};
 					next if not $req->accepts_module($module, $Module::CoreList::version{$core_version}{$module});
+					next if Module::CoreList->is_deprecated($module, $core_version);
 					$req->clear_requirement($module);
 				}
 			}
