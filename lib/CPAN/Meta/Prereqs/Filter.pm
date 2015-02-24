@@ -3,8 +3,8 @@ package CPAN::Meta::Prereqs::Filter;
 use strict;
 use warnings;
 
-use Exporter 5.57;
-our @EXPORT = qw/filter_prereqs/;
+use Exporter 5.57 'import';
+our @EXPORT_OK = qw/filter_prereqs/;
 
 use Carp 'croak';
 use Scalar::Util 'isvstring';
