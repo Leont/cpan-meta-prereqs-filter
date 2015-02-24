@@ -7,6 +7,7 @@ use Exporter 5.57;
 our @EXPORT = qw/filter_prereqs/;
 
 use Carp 'croak';
+use Scalar::Util 'isvstring';
 
 my @phases = qw/configure build test runtime develop/;
 my @relationships = qw/requires recommends suggests/;
@@ -19,6 +20,9 @@ my %dependents_for = (
 
 sub _normalize_version {
 	my $raw = shift;
+	if (isvstring($raw)) {
+		$raw = sprintf 'v%vd', $raw;
+	}
 	if ($raw =~ /v5\.[\d.]+/) {
 		require version;
 		$raw = version->new($raw)->numify;
