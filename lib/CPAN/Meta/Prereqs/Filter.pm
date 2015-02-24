@@ -99,3 +99,34 @@ sub filter_prereqs {
 1;
 
 # ABSTRACT: Filtering various things out of CPAN::Meta::Prereqs
+
+=head1 SYNOPSIS
+
+ use CPAN::Meta::Prereqs::Filter 'filter_prereqs';
+ $prereqs = filter_prereqs($prereqs, sanatize => 1, only_missing => 1, omit_core => 5.008003);
+
+=head1 DESCRIPTION
+
+This module provides various filters for CPAN::Meta::Prereqs objects.
+
+=func filter_prereqs($prereqs, %opts)
+
+This function filters various things entries from the $prereqs, and returns it in a new L<Prereqs|CPAN::Meta::Prereqs> object. Allowed options are:
+
+=over 4
+
+=item sanatize
+
+If true, any double-declared entries are removed. For example, runtime dependencies will be removed from testing dependencies, because runtime dependencies should already be installed during testing. The exact algorithm may change in future versions.
+
+=item omit_core
+
+This takes a perl version, and will remove all requirements that are provided by that version of perl. It can take the version argument as a number (C<5.008008>), a string starting with a v (C<'v5.8.8'>), a v-string or the special string C<'latest'> which will substitute the highest known version in L<Module::CoreList|Module::CoreList> (this is not necessarily the latest released version of perl, you may want to upgrade your Module::CoreList for more up-to-date data).
+
+=item only_missing
+
+This will filter out requirements that are met on the current system (as determined using L<Module::Metadata|Module::Metadata>).
+
+=back
+
+=cut
