@@ -58,7 +58,7 @@ sub filter_prereqs {
 			}
 		}
 	}
-	if ($args{sanatize}) {
+	if ($args{sanitize}) {
 		for my $parent (qw/runtime configure build/) {
 			for my $child ( @{ $dependents_for{$parent} } ) {
 				for my $relationship (@relationships) {
@@ -103,7 +103,7 @@ sub filter_prereqs {
 =head1 SYNOPSIS
 
  use CPAN::Meta::Prereqs::Filter 'filter_prereqs';
- $prereqs = filter_prereqs($prereqs, sanatize => 1, only_missing => 1, omit_core => 5.008003);
+ $prereqs = filter_prereqs($prereqs, sanitize => 1, only_missing => 1, omit_core => 5.008003);
 
 =head1 DESCRIPTION
 
@@ -115,7 +115,7 @@ This function filters various things entries from the $prereqs, and returns it i
 
 =over 4
 
-=item sanatize
+=item sanitize
 
 If true, any double-declared entries are removed. For example, runtime dependencies will be removed from testing dependencies, because runtime dependencies should already be installed during testing. The exact algorithm may change in future versions.
 
