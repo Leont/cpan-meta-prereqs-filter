@@ -1,6 +1,8 @@
 Revision history for CPAN-Meta-Prereqs-Filter
 
 {{$NEXT}}
+
+0.002     2015-03-01 02:05:56+01:00 Europe/Amsterdam
           s/sanatize/sanitize/
 
 0.001     2015-02-25 01:18:50+01:00 Europe/Amsterdam
