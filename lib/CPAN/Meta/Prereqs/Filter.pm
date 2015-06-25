@@ -23,17 +23,15 @@ sub _normalize_version {
 	if (isvstring($raw)) {
 		$raw = sprintf 'v%vd', $raw;
 	}
-	if ($raw =~ /v5\.[\d.]+/) {
+	if ($raw =~ / \A v5 (?> \. \d+)* \z /x) {
 		require version;
-		$raw = version->new($raw)->numify;
-		my $pattern = $raw >= 5.010 ? '%7.6f' : '%4.3f';
-		return sprintf $pattern, $raw;
+		return sprintf '%7.6f', version->new($raw)->numify;
 	}
 	elsif ($raw eq 'latest') {
 		require Module::CoreList;
 		return (reverse sort keys %Module::CoreList::version)[0];
 	}
-	return $raw >= 5.010 ? sprintf '%7.6f', $raw : $raw;
+	return sprintf '%7.6f', $raw;
 }
 
 sub filter_prereqs {
