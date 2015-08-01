@@ -1,6 +1,8 @@
 Revision history for CPAN-Meta-Prereqs-Filter
 
 {{$NEXT}}
+
+0.003     2015-08-01 12:05:54+02:00 Europe/Amsterdam
           Fix version normalization
 
 0.002     2015-03-01 02:05:56+01:00 Europe/Amsterdam
