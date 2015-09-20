@@ -1,6 +1,7 @@
 Revision history for CPAN-Meta-Prereqs-Filter
 
 {{$NEXT}}
+          Update Module::CoreList dependency to 5.021
 
 0.003     2015-08-01 12:05:54+02:00 Europe/Amsterdam
           Fix version normalization
