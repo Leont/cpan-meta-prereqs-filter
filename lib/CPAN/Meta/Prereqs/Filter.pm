@@ -13,9 +13,10 @@ my @phases = qw/configure build test runtime develop/;
 my @relationships = qw/requires recommends suggests/;
 
 my %dependents_for = (
+	configure => [ qw/build test develop/ ],
 	runtime => [ qw/build test develop/ ],
-	configure => [ qw/build test/ ],
-	build => [ 'test' ],
+	build => [ qw/test develop/ ],
+	test => [ qw/develop/ ],
 );
 
 sub _normalize_version {
