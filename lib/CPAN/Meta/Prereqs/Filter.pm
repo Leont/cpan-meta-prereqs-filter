@@ -66,7 +66,7 @@ sub filter_prereqs {
 					for my $module ($source->required_modules) {
 						next if not defined(my $right = $sink->requirements_for_module($module));
 						my $left = $source->requirements_for_module($module);
-						$sink->clear_requirement($module) if $left eq $right || $right eq '0';
+						$sink->clear_requirement($module) if $left ge $right;
 					}
 				}
 			}
