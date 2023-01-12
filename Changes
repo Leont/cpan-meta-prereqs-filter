@@ -1,6 +1,8 @@
 Revision history for CPAN-Meta-Prereqs-Filter
 
 {{$NEXT}}
+
+0.006     2023-01-12 14:26:39+01:00 Europe/Amsterdam
           - Also sanatize on lesser version in dependent phase
 
 0.005     2020-08-22 14:28:35+02:00 Europe/Amsterdam
