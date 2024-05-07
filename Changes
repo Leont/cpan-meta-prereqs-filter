@@ -1,6 +1,7 @@
 Revision history for CPAN-Meta-Prereqs-Filter
 
-{{$NEXT}}
+{{$NEXT}}A
+          - Add perl-listdeps script
 
 0.006     2023-01-12 14:26:39+01:00 Europe/Amsterdam
           - Also sanatize on lesser version in dependent phase
